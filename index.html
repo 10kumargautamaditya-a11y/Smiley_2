@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="style.css">
+ 
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+ 
+    <!-- LOBBY SCREEN -->
+    <div id="lobby-screen">
+        <div class="lobby-card">
+            <div class="watching-eyes" aria-hidden="true">
+                <div class="watch-eye">
+                    <div class="watch-pupil"></div>
+                </div>
+                <div class="watch-eye">
+                    <div class="watch-pupil"></div>
+                </div>
+            </div>
+ 
+            <h1>HI! I'M SMILEY</h1>
+            <p class="subtitle">Everyone who types the same code lands in the same room, poking the same face.</p>
+ 
+            <div class="code-slot">
+                <input id="room-code-input" type="text" placeholder="type a room code…" autocomplete="off" spellcheck="false" maxlength="24">
+            </div>
+ 
+            <button id="enter-room-btn">Join</button>
+ 
+            <p id="lobby-status" class="status"></p>
+        </div>
+    </div>
+ 
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="hidden">
+        <div id="room-pill">room: <span id="room-label"></span></div>
+    </div>
+
+    <script src="minigame.js"></script>
+    <script src="lobby.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

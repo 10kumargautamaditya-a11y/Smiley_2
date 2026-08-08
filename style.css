@@ -1,0 +1,277 @@
+/* ============================================================
+/* ============================================================
+   Tokens
+   Color:  --face (page bg), --yolk (smiley yellow, matches sketch),
+           --peach (cheek color, matches sketch), --ink (text),
+           --teal (single accent used for the one call-to-action)
+   Type:   Baloo 2 (display, rounded/playful) + Nunito (body/UI)
+   ============================================================ */
+:root {
+    --white: #ffffff;
+    --face: #FFDE34;
+    --yolk: #ffde34;
+    --peach: #ffaa66;
+    --ink: #2b2320;
+    --teal: #1fa99a;
+    --teal-dark: #16847a;
+}
+ 
+* {
+    box-sizing: border-box;
+}
+ 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+    color: var(--ink);
+}
+ 
+.hidden {
+    display: none !important;
+}
+ 
+/* ---------------- Lobby ---------------- */
+#lobby-screen {
+    height: 100vh;
+    width: 100vw;
+    background: var(--face);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+ 
+#lobby-screen::before {
+    /* soft peach glow behind the card, echoing the cheek color */
+    content: "";
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(255, 170, 102, 0.35) 0%, rgba(255, 170, 102, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+ 
+.lobby-card {
+    position: relative;
+    z-index: 1;
+    background: #ffffffea;
+    border-radius: 28px;
+    padding: 48px 40px 40px;
+    width: min(90vw, 420px);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(43, 35, 32, 0.12);
+}
+ 
+.watching-eyes {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-bottom: 22px;
+}
+ 
+.watch-eye {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: blink 5.5s infinite;
+}
+ 
+.watch-pupil {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--white);
+    transition: transform 0.05s linear;
+}
+ 
+ 
+ 
+@keyframes blink {
+    0%, 94%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.1); }
+}
+ 
+h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 0 0 8px;
+}
+ 
+.subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #6b5f57;
+    margin: 0 0 28px;
+}
+ 
+.code-slot {
+    background: var(--white);
+    border: 2px solid #efe3c8;
+    border-radius: 999px;
+    padding: 4px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+ 
+.code-slot:focus-within {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(31, 169, 154, 0.25);
+}
+ 
+#room-code-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    text-align: center;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    padding: 12px 16px;
+    color: var(--ink);
+}
+ 
+#room-code-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+ 
+#room-code-input::placeholder {
+    color: #b8a98f;
+    font-weight: 400;
+}
+ 
+#enter-room-btn {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    background: var(--teal);
+    border: none;
+    border-radius: 999px;
+    padding: 14px 32px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+ 
+#enter-room-btn:hover {
+    background: var(--teal-dark);
+}
+ 
+#enter-room-btn:active {
+    transform: scale(0.98);
+}
+ 
+#enter-room-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+}
+ 
+.status {
+    min-height: 1.2em;
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    color: #8a7c6f;
+}
+
+.feed-button {
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 64px 128px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.feed-button:hover {
+    background: var(--teal-dark);
+}
+
+.feed-button:active {
+    transform: scale(1.5);
+}
+
+.select-eyes {
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 16px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.select-eyes:hover {
+    background: var(--teal-dark);
+}
+
+.select-eyes:active {
+    transform: scale(1.5);
+}
+
+/* ---------------- Game screen ---------------- */
+#game-screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+ 
+#room-pill {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    z-index: 5;
+    pointer-events: none;
+}
+ 
+#room-pill span {
+    font-weight: 700;
+    color: var(--teal-dark);
+}
+ 
+/* Accessibility: visible focus state */
+#enter-room-btn:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+    .watch-eye {
+        animation: none;
+    }
+}
